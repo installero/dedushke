@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", ready);
 
 function ready() {
-  fetch('template.txt')
+  fetch(templatePath)
     .then((response) => response.text())
     .then((text) => bind(text));
 }
