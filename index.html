@@ -11,6 +11,11 @@
     body {
       font-family: 'PT Sans Narrow', sans-serif;
     }
+
+    textarea {
+      height: 170px;
+      resize: vertical;
+    }
   </style>
 
   <script charset="utf-8" src='js/pattern_string_generator.js'></script>
@@ -25,19 +30,18 @@
         <input class="u-full-width"
           placeholder="Константин Макарыч" name="name" type="text">
 
-        <input class="button-primary" value="Бум!" type="submit">
+        <input class="button-primary" value="Generate" type="submit">
       </form>
     </div>
     <div class="eight columns">
       <h2>Template:</h2>
-      <pre><code><span id="template"/></code></pre>
+      <p>Edit in <code>template.txt</code></p>
+      <textarea id="template" class="u-full-width" disabled></textarea>
 
       <h2>Result:</h2>
-      <div id="text">
-        Милый дедушка, Константин Макарыч! И пишу тебе письмо. Поздравляю вас с
-        Рождеством и желаю тебе всего от господа бога. Нету у меня ни отца, ни
-        маменьки, только ты у меня один остался.
-      </div>
+      <textarea id="text" class="u-full-width">Милый дедушка, Константин Макарыч! И пишу тебе письмо. Поздравляю вас с Рождеством и желаю тебе всего от господа бога. Нету у меня ни отца, ни маменьки, только ты у меня один остался.</textarea>
+
+      <button id="copy">Copy</button>
     </div>
   </div>
 </div>

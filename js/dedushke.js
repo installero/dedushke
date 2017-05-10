@@ -15,6 +15,15 @@ function bind(template) {
       click_event.preventDefault();
       document.getElementById('text').innerHTML = generateText(template);
     });
+
+  let text = document.getElementById('text');
+
+  document
+    .getElementById('copy')
+    .addEventListener('click', (click_event) => {
+      text.select();
+      document.execCommand('copy');
+    });
 }
 
 function generateText(template) {
