@@ -7,6 +7,8 @@ function ready() {
 }
 
 function bind(template) {
+  document.getElementById('template').innerHTML = template;
+
   document
     .querySelector('input[type="submit"]')
     .addEventListener('click', (click_event) => {
