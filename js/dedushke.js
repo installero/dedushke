@@ -7,8 +7,10 @@ function ready() {
 }
 
 function bind(template) {
+  // Print template to template example textarea
   document.getElementById('template').innerHTML = template;
 
+  // Bind text generation to submit button
   document
     .querySelector('input[type="submit"]')
     .addEventListener('click', (click_event) => {
@@ -16,8 +18,8 @@ function bind(template) {
       document.getElementById('text').innerHTML = generateText(template);
     });
 
+  // Click on 'Copy' button copies text to clipboard.
   let text = document.getElementById('text');
-
   document
     .getElementById('copy')
     .addEventListener('click', (click_event) => {
@@ -33,13 +35,9 @@ function generateText(template) {
     .getElementById('form')
     .querySelectorAll('input, select, textarea')
     .forEach((input) => {
-      console.log(input.name);
-
       if(input.type != 'submit') {
         text = text.replace('{{' + input.name + '}}', input.value);
       }
-
-      console.log(text);
     });
 
   return text.asPattern().toString();
