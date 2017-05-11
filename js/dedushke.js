@@ -3,22 +3,23 @@ document.addEventListener("DOMContentLoaded", ready);
 function ready() {
   fetch(templatePath)
     .then((response) => response.text())
-    .then((text) => bind(text));
+    .then((text) => {
+      document.getElementById('template').innerHTML = text;
+      bind();
+    });
 }
 
-function bind(template) {
-  // Print template to template example textarea
-  document.getElementById('template').innerHTML = template;
-
+function bind() {
   // Bind text generation to submit button
   document
     .querySelector('input[type="submit"]')
     .addEventListener('click', (click_event) => {
       click_event.preventDefault();
+      var template = document.getElementById('template').value;
       document.getElementById('text').innerHTML = generateText(template);
     });
 
-  // Click on 'Copy' button copies text to clipboard.
+  // Copy generated text on 'Copy' button click
   let text = document.getElementById('text');
   document
     .getElementById('copy')
